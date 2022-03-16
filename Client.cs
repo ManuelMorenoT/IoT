@@ -16,9 +16,9 @@ public class Client : MonoBehaviour
      public String Texto;
 
      //Read string [0,1,2,3,4]
-     public String valor1, valor2, valor3, valor4, valor5;
-     public String valores;
-     public String[] NewValor;
+     public String val1, val2, val3, val4, val5;
+     public String values;
+     public String[] NewValue;
      
  
      void Start() {
@@ -32,13 +32,13 @@ public class Client : MonoBehaviour
          while (theStream.DataAvailable) {                  // if new data is recieved from Arduino
              //Texto = readSocket();           // write it to a string
              //Debug.Log(Texto);
-             valores = readSocket();
-             NewValor = valores.Split(' ');
-             valor1 = NewValor[0];
-             valor2 = NewValor[1];
-             valor3 = NewValor[2];
-             valor4 = NewValor[3];
-             valor5 = NewValor[4];
+             values = readSocket();
+             NewValues = values.Split(' ');
+             val1 = NewValue[0];
+             val2 = NewValue[1];
+             val3 = NewValue[2];
+             val4 = NewValue[3];
+             val5 = NewValue[4];
              }
          
      }
