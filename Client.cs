@@ -2,7 +2,7 @@
  using System.Collections;
  using System;
  using System.IO;
- using System.Net.Sockets; 
+ using System.Net.Sockets;   
 
 public class Client : MonoBehaviour
 {
@@ -11,9 +11,14 @@ public class Client : MonoBehaviour
      public NetworkStream theStream;
      StreamWriter theWriter;
      StreamReader theReader;
-     public String Host = "192.168.1.137";
+     public String Host = "192.168.1.64";
      public Int32 Port = 80; 
      public String Texto;
+
+     //Read string [0,1,2,3,4]
+     public String valor1, valor2, valor3, valor4, valor5;
+     public String valores;
+     public String[] NewValor;
      
  
      void Start() {
@@ -25,8 +30,15 @@ public class Client : MonoBehaviour
      void FixedUpdate(){
          
          while (theStream.DataAvailable) {                  // if new data is recieved from Arduino
-             Texto = readSocket();           // write it to a string
-             Debug.Log(Texto);
+             //Texto = readSocket();           // write it to a string
+             //Debug.Log(Texto);
+             valores = readSocket();
+             NewValor = valores.Split(' ');
+             valor1 = NewValor[0];
+             valor2 = NewValor[1];
+             valor3 = NewValor[2];
+             valor4 = NewValor[3];
+             valor5 = NewValor[4];
              }
          
      }
