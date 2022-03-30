@@ -2,13 +2,13 @@
 #include <WiFiClient.h>
 
 #ifndef STASSID
-#define STASSID "INFINITUMAC67_2.4"
-#define STAPSK  "r8jsZXbyZJ"
+#define STASSID "MSI8230"
+#define STAPSK  "P181%70w"
 #endif
 
 const char *ssid = STASSID;
 const char *password = STAPSK;
-WiFiServer server(80); 
+WiFiServer server(80  ); 
 WiFiClient client;
 boolean alreadyConnected = false;
 int val;
