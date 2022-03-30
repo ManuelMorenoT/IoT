@@ -2,18 +2,19 @@
 #include <WiFiClient.h>
 
 #ifndef STASSID
-#define STASSID "INFINITUM319E_2.4"
-#define STAPSK  "R6RnK3yb95"
+#define STASSID "MSI8230"
+#define STAPSK  "P181%70w"
 #endif
 
 const char *ssid = STASSID;
 const char *password = STAPSK;
-WiFiServer server(80); 
+WiFiServer server(80  ); 
 WiFiClient client;
 boolean alreadyConnected = false;
 int val;
 int Periodo = 10000;
 unsigned long Tiempo;
+String Data;
 
 void setup(void) {
   Serial.begin(115200);
@@ -37,21 +38,20 @@ void setup(void) {
 }
 
 void loop(void) {
-  SendData();
-  
-  
-}
-void SendData(void){
   client = server.available();
   if(client){
     Serial.println("Client connected");
     while(client.connected()){
-      val = analogRead(A0);
-      Serial.println(val);
-      client.println(String(val));
-      delay(33);
+       for(int i=0; i<5; i++){
+         val = analogRead(A0);
+         Data+=(String(val) + " ");
+         }
+         Serial.println(Data);
+         client.println(Data);
+         delay(33);//Cambiar por millitime
+         Data="";
       }
     }
-}
-
   
+  
+}
