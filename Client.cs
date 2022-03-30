@@ -11,14 +11,13 @@ public class Client : MonoBehaviour
      public NetworkStream theStream;
      StreamWriter theWriter;
      StreamReader theReader;
-     public String Host = "192.168.1.64";
+     public String Host = "192.168.137.180";
      public Int32 Port = 80; 
-     public String Texto;
-
+     
      //Read string [0,1,2,3,4]
-     public String val1, val2, val3, val4, val5;
-     public String values;
-     public String[] NewValue;
+     public String Ax, Ay, Az, Gx, Gy, Gz;
+     public String buffer;
+     String[] sValue;
      
  
      void Start() {
@@ -30,15 +29,14 @@ public class Client : MonoBehaviour
      void FixedUpdate(){
          
          while (theStream.DataAvailable) {                  // if new data is recieved from Arduino
-             //Texto = readSocket();           // write it to a string
-             //Debug.Log(Texto);
-             values = readSocket();
-             NewValues = values.Split(' ');
-             val1 = NewValue[0];
-             val2 = NewValue[1];
-             val3 = NewValue[2];
-             val4 = NewValue[3];
-             val5 = NewValue[4];
+             buffer = readSocket();
+             sValue = buffer.Split(' ');
+             Ax = sValue[0];
+             Ay = sValue[1];
+             Az = sValue[2];
+             Gx = sValue[3];
+             Gy = sValue[4];
+             Gz = sValue[5];
              }
          
      }
